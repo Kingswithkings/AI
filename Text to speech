@@ -1,0 +1,109 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO8K3O1SkbI1rcZ5POl+b+t",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Kingswithkings/AI/blob/main/Text%20to%20speech\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 13,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "i389quf77HMA",
+        "outputId": "1e0e4816-1194-4e08-b7f2-da6cd090ca44"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Requirement already satisfied: gTTS in /usr/local/lib/python3.11/dist-packages (2.5.4)\n",
+            "Requirement already satisfied: requests<3,>=2.27 in /usr/local/lib/python3.11/dist-packages (from gTTS) (2.32.3)\n",
+            "Requirement already satisfied: click<8.2,>=7.1 in /usr/local/lib/python3.11/dist-packages (from gTTS) (8.1.8)\n",
+            "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.27->gTTS) (3.4.1)\n",
+            "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.27->gTTS) (3.10)\n",
+            "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.27->gTTS) (2.3.0)\n",
+            "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.27->gTTS) (2024.12.14)\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install gTTS"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from gtts import gTTS\n",
+        "import os"
+      ],
+      "metadata": {
+        "id": "HfqWkGLK7JOb"
+      },
+      "execution_count": 14,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Input text\n",
+        "text = \"Hello, this is kings Idogu, i am a software engineer, currently studying Artificial intelligence in Northumbria University London\"\n",
+        "\n",
+        "# Convert text to speech\n",
+        "tts = gTTS(text=text, lang='en', slow=False)\n",
+        "\n",
+        "import os\n",
+        "os.makedirs(\"downloads\", exist_ok=True)\n",
+        "\n",
+        "# Save the audio file\n",
+        "tts.save(\"downloads/output.mp3\")\n",
+        "\n",
+        "# Play the audio file\n",
+        "os.system(\"start downloads/output.mp3\")\n",
+        "\n",
+        "print(os.getcwd())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "w4oNPDI27iTt",
+        "outputId": "dd83033b-1e94-4d2f-8706-84e6b2314282"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "/content\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
